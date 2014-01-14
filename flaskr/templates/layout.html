@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Flaskr</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	</head>
+	<body>
+
+		<header>
+			<div class="container">
+				<h1 class="logo">My Website</h1>
+				<nav>
+					<ul class="menu">
+						<li><a href="{{ url_for('home') }}">Home</a></li>
+						<li><a href="{{ url_for('show_entries') }}">Blog</a></li>
+
+
+			</div>
+		</header>
+		<div class=page>
+			{% for message in get_flashed_messages() %}
+				<div class=flash>{{ message }}</div>
+			{% endfor %}
+
+			{% block body %}
+			{% endblock %}
+		</div>
+	</body>
+</html>
